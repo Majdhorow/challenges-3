@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  
+  <title>Frontend Mentor | Recipe page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Young+Serif&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+
+    .attribution { font-size: 11px; text-align: center;
+      margin-top: 64px;
+    }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box ;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 2200px;
+      background-color: #F3E5D7;
+  
+    }
+    .Recipe-page {
+      width: 736px;
+      padding: 40px;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+    }
+
+    .Recipe-page .cover-img {
+      width: 656px ;
+      border-radius: 12px;
+    }
+
+    .Recipe-page .text-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    .Recipe-page .text-content .title,
+    .Recipe-page .text-content .Ingredients,
+    .Recipe-page .text-content .instructions { 
+      margin-bottom: 32px;
+    }
+
+    .Recipe-page .text-content .title h1 {
+      font-family: "Young Serif", serif;
+      font-size: 40px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      line-height: 100%;
+      color: #312E2C;
+    }
+    .Recipe-page .text-content .title p,
+    .Recipe-page .text-content .nutrition p{ 
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      color: #5F564D;
+      
+    }
+    .Recipe-page .text-content .Preparation-time {
+      padding: 24px ;
+      background-color: #FFF7FB;
+      margin-bottom: 24px;
+      border-radius: 12px;
+    }
+
+    .Recipe-page .text-content .Preparation-time h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #7A284E;
+      margin-bottom: 16px;
+    }
+    ul li::marker {
+    color: #7A284E;
+    font-size: 12px; 
+    padding-left: 16px;
+}
+
+
+    .Recipe-page .text-content .Preparation-time ul li,
+    .Recipe-page .text-content .Ingredients ul li{
+      margin: 0 24px;
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      color: #5F564D;
+      text-indent: 16px; 
+    }
+    .Recipe-page .text-content .Preparation-time ul li span,
+    .Recipe-page .text-content .instructions ol li span {
+      font-weight:  bold;
+    }
+
+    .Recipe-page .text-content .Preparation-time ul li:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    .Recipe-page .text-content .Ingredients h2,
+    .Recipe-page .text-content .instructions h2,
+    .Recipe-page .text-content  .nutrition h2 {
+      font-family: "Young Serif", serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 100%;
+      color: #854632;
+      margin-bottom: 24px;
+    }
+
+    .Recipe-page .text-content .Ingredients ul li::marker {
+    color: #854632;
+    font-size: 12px; 
+    padding-left: 16px; 
+    }
+
+    .Recipe-page .text-content .Ingredients ul li:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    .line {
+      border-bottom: 1px solid #E3DDD7;
+      margin-bottom: 32px;
+
+    }
+    .Recipe-page .text-content .instructions ol {
+    list-style-type: none;
+    counter-reset: list-counter;
+    padding-left: 0;
+}
+
+.Recipe-page .text-content .instructions ol li {
+    counter-increment: list-counter;
+    position: relative;
+    padding-left: 24px; 
+    font-family: "Outfit", sans-serif;
+    margin: 0 0 8px 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #5F564D;
+}
+
+.Recipe-page .text-content .instructions ol li::before {
+    content: counter(list-counter) ".";
+    position: absolute;
+    left: 0;
+    color: #854632;
+    font-family: "Outfit", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 16px; 
+  }
+
+.Recipe-page .text-content .instructions  table { 
+  padding-top: 24px;
+
+}
+
+.Recipe-page .text-content .instructions  table, th, td {
+  border-bottom: 1px solid #E3DDD7;
+  padding-left: 32px; 
+  
+
+
+}
+
+
+ .first {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #5F564D;
+  padding-bottom: 3px;
+
+} 
+.second {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 150%;
+  color: #854632;
+  padding-bottom: 3px;
+
+}
+.nutrition-table {
+  width: 100%; 
+  border-collapse: collapse;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+  color: #5F564D;
+  margin-top: 24px;
+
+  
+}
+
+
+    
+.nutrition-table th,
+.nutrition-table td {
+  text-align: left;
+  font-size: 16px;
+  padding: 14px 0 14px 32px; 
+  border-bottom: 1px solid #E3DDD7;
+  
+
+  
+}
+.nutrition-table tr:last-child td {
+  border-bottom: none;
+}
+
+.nutrition-table tr:first-child td {
+  padding-top: 0px;
+}
+
+.nutrition-table .value {
+  font-weight: bold;
+  color: #8B4513; 
+    
+}
+
+@media screen and (max-width: 430px) {
+  .Recipe-page {
+    width: 375px;
+    background-color: #FFFFFF;
+    padding: 0;
+    border-radius: 0;
+  }
+  .Recipe-page .cover-img {
+    width: 375px ;
+    border-radius: 0;
+  }
+  .Recipe-page .text-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 32px 32px 40px;
+  }
+
+  .Recipe-page .text-content .title h1 {
+    font-size: 36px;
+  }
+  
+
+
+}
+
+
+
+
+
+    
+    
+  
+
+  </style>
+</head>
+<body>
+
+  <!-- font-family: "Outfit", sans-serif;
+  font-family: "Young Serif", serif; -->
+
+
+
+  <!-- Simple Omelette Recipe
+
+  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+
+  Preparation time
+
+  Total: Approximately 10 minutes
+  Preparation: 5 minutes
+  Cooking: 5 minutes
+
+  Ingredients
+
+  2-3 large eggs
+  Salt, to taste
+  Pepper, to taste
+  1 tablespoon of butter or oil
+  Optional fillings: cheese, diced vegetables, cooked meats, herbs
+
+  Instructions
+
+  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
+  You can add a tablespoon of water or milk for a fluffier texture.
+
+  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
+
+  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
+  the eggs evenly coat the surface.
+
+  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
+  middle, sprinkle your chosen fillings over one half of the omelette.
+
+  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
+  fillings. Let it cook for another minute, then slide it onto a plate.
+
+  Enjoy: Serve hot, with additional salt and pepper if needed.
+
+  Nutrition
+
+  The table below shows nutritional values per serving without the additional fillings.
+
+  Calories
+  277kcal
+
+  Carbs
+  0g
+
+  Protein
+  20g
+
+  Fat
+  22g -->
+<section>
+  <div class="Recipe-page">
+    <img class="cover-img" src="./image-omelette.jpeg" alt="Recipe page Cover image">
+    <div class="text-content">
+      <div class="title">
+        <h1>Simple Omelette Recipe</h1>
+        <p>An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+      </div>
+      <div class="Preparation-time">
+        <h3>Preparation time</h3>
+        <ul>
+          <li><span>Total:</span> Approximately 10 minutes</li>
+          <li><span>Preparation:</span> 5 minutes</li>
+          <li><span>Cooking:</span> 5 minutes</li>
+        </ul>
+      </div>
+      <div class="Ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>2-3 large eggs</li>
+          <li>Salt, to taste</li>
+          <li>Pepper, to taste</li>
+          <li>1 tablespoon of butter or oil</li>
+          <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+        </ul>
+      </div>
+      <div class="line"></div>
+      <div class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li><span>Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture.</li>
+          <li><span>Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter or oil.</li>
+          <li><span>Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</li>
+          <li><span>Add fillings (optional):</span> When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette.</li>
+          <li><span>Fold and serve:</span> As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slide it onto a plate.</li>
+          <li><span>Enjoy:</span> Serve hot, with additional salt and pepper if needed.</li>
+        </ol>
+      </div>
+      <div class="line"></div>
+      <div class="nutrition">
+        <h2>Nutrition</h2>
+        <p>The table below shows nutritional values per serving without the additional fillings.</p>
+        
+        <table class="nutrition-table">
+          <tr>
+              <td>Calories</td>
+              <td class="value">277kcal</td>
+          </tr>
+          <tr>
+              <td>Carbs</td>
+              <td class="value">0g</td>
+          </tr>
+          <tr>
+              <td>Protein</td>
+              <td class="value">20g</td>
+          </tr>
+          <tr>
+              <td>Fat</td>
+              <td class="value">22g</td>
+          </tr>
+      </table>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
